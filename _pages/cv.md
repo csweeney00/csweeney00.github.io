@@ -9,6 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
+PDF Version: http://csweeney00.github.io/files/Academic_CV.pdf
+
 Education
 ======
 * DPhil Machine Learning, University of Oxford, 2028
