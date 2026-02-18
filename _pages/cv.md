@@ -11,35 +11,23 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* DPhil Machine Learning, University of Oxford, 2028
+* MSc Statistical Science, University of Oxford, 2024
+  * Distinction
+* BSc Computer Science & Maths, University of Edinburgh, 2023
+  * First Class
 
-Work experience
+Experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
-
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Master’s Dissertation
+  * _Uncertainty Quantification of Protein Structure Predictions in the Context of Protein Flexibility_
+  * Estimated the conformational flexibility of AlphaFold2’s protein structure predictions through quantification of the prediction’s aleatoric uncertainty. Involved the adaptation of AlphaFold2’s Structure Module to produce uncertainty estimates and an analysis of the reliability of such estimates.
+  * Supervisor: Yee Whye Teh
+ 
+* Undergraduate Dissertation
+    * _An Experimental Study of Persistent Homology Dimension Regularisation_
+    * Exploration of the links between generalisation, compressibility, and the noise distribution of network trajectories in SGD through an existing persistent homology dimension regularisation method. Involved work in the fields of topological data analysis, network pruning, and basic stochastic differential equations.
+    * Supervisor: Rik Sarkar
 
 Publications
 ======
