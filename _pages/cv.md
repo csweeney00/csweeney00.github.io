@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-PDF Version: http://csweeney00.github.io/files/Academic_CV.pdf
+PDF Version: <a href='http://csweeney00.github.io/files/Academic_CV.pdf'>Download paper here</a>
 
 Education
 ======
