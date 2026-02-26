@@ -7,7 +7,6 @@ date: 2024-12-15
 venue: 'NeurIPS Machine Learning &amp; Structural Biology Workshop'
 paperurl: 'http://csweeney00.github.io/files/MLSB_2024_Loop_Uncertainty.pdf'
 citation: 'None'
-category: proceeding
 ---
 Abstract
 
