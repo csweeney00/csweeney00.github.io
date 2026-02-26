@@ -1,7 +1,6 @@
 ---
 title: "Estimating protein flexibility _via_ uncertainty"
 collection: publications
-category: manuscripts
 permalink: /publication/2024-12-15-workshop_mlsb_loop_uncertainty
 excerpt: ''
 date: 2024-12-15
