@@ -15,14 +15,14 @@ Notes:
 
 <style>
   .dataset-table-wrap {
-    overflow-x: visible;
-  }
-
-  @media (max-width: 900px) {
-    .dataset-table-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: inset 10px 0 10px -10px rgba(0, 0, 0, 0.18),
+                inset -10px 0 10px -10px rgba(0, 0, 0, 0.18);
   }
 </style>
 
