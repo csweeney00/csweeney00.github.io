@@ -13,9 +13,22 @@ Notes:
   <li>No* in 'Directed?' field indicates that the dataset is typically undirected but the nature of the edges means that it could be converted to a directed graph.</li>
 </ul>
 
+<style>
+  .dataset-table-wrap {
+    overflow-x: visible;
+  }
+
+  @media (max-width: 900px) {
+    .dataset-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+</style>
+
 <h2>Dataset Summaries</h2>
 
-<div  style="overflow-x: scroll;">
+<div class="dataset-table-wrap">
 
 | Dataset Name     | Collection           | Task Type            | Graphs | Nodes  | Edges   | Directed? | Temporal? | Node Features | Edge Features | Feature Description                                                                                                                         | Heterophilic? | Classes | Field             | Task Description                                                                                                                                                                 | Notes                                                                               |
 |------------------|----------------------|----------------------|--------|--------|---------|-----------|-----------|---------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
