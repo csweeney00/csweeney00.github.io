@@ -24,11 +24,23 @@ Notes:
     box-shadow: inset 10px 0 10px -10px rgba(0, 0, 0, 0.18),
                 inset -10px 0 10px -10px rgba(0, 0, 0, 0.18);
   }
+
+  .dataset-table-wrap table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+  }
+
+  .dataset-table-wrap th,
+  .dataset-table-wrap td {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
 </style>
 
 <h2>Dataset Summaries</h2>
 
-<div class="dataset-table-wrap">
+<div class="dataset-table-wrap" markdown="1">
 
 | Dataset Name     | Collection           | Task Type            | Graphs | Nodes  | Edges   | Directed? | Temporal? | Node Features | Edge Features | Feature Description                                                                                                                         | Heterophilic? | Classes | Field             | Task Description                                                                                                                                                                 | Notes                                                                               |
 |------------------|----------------------|----------------------|--------|--------|---------|-----------|-----------|---------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
