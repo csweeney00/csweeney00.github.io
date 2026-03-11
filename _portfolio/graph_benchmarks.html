@@ -13,7 +13,7 @@ Notes:
   <li>No* in 'Directed?' field indicates that the dataset is typically undirected but the nature of the edges means that it could be converted to a directed graph.</li>
 </ul>
 
-<!-- <style>
+<style>
   .dataset-table-wrap {
     display: block;
     width: 100%;
@@ -36,130 +36,2133 @@ Notes:
     overflow-wrap: anywhere;
     word-break: break-word;
   }
-</style> -->
+</style>
 
 <h2>Dataset Summaries</h2>
 
-<!-- <div class="dataset-table-wrap" markdown="block"> -->
-<div>
-
-| Dataset Name     | Collection           | Task Type            | Graphs | Nodes  | Edges   | Directed? | Temporal? | Node Features | Edge Features | Feature Description                                                                                                                         | Heterophilic? | Classes | Field             | Task Description                                                                                                                                                                 | Notes                                                                               |
-|------------------|----------------------|----------------------|--------|--------|---------|-----------|-----------|---------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| Cora             | Planetoid            | Node Classification  | 1      | 2708   | 10556   | No*       | No        | 1433          | N/A           | Bag of words.                                                                                                                               | No            | 7       | Citation Network  | Classify the topic of the paper.                                                                                                                                                 |                                                                                     |
-| Citeseer         | Planetoid            | Node Classification  | 1      | 3327   | 9104    | No*       | No        | 3703          | N/A           | Bag of words.                                                                                                                               | No            | 6       | Citation Network  | Classify the topic of the paper.                                                                                                                                                 |                                                                                     |
-| Pubmed           | Planetoid            | Node Classification  | 1      | 19717  | 88649   | No*       | No        | 500           | N/A           | Bag of words.                                                                                                                               | No            | 3       | Citation Network  | Classify the topic of the paper.                                                                                                                                                 |                                                                                     |
-| MNIST            | GNN Benchmark        | Graph Classification | 70000  | 70.57  | 565.53  | No        | No        | 3             | 1             | Node features are pixel values and coordinates. Edge features are node distances.                                                           | No            | 10      | Superpixel        | Classify the superpixel images into the digit the image represents.                                                                                                              |                                                                                     |
-| CIFAR10          | GNN Benchmark        | Graph Classification | 60000  | 117.63 | 941.07  | No        | No        | 5             | 1             | Node features are pixel values and coordinates. Edge features are node distances.                                                           | No            | 10      | Superpixel        | Classify the object shown in the superpixel image.                                                                                                                               |                                                                                     |
-| PATTERN          | GNN Benchmark        | Node Classification  | 14000  | 117.47 | 4749.15 | No        | No        | 3             | N/A           | Random.                                                                                                                                     | No            | 2       | Synthetic         | Classify if the node belongs to a given pattern in an SBM graph.                                                                                                                 |                                                                                     |
-| CLUSTER          | GNN Benchmark        | Node Classification  | 12000  | 117.2  | 4301.72 | No        | No        | 7             | N/A           | Community membership.                                                                                                                       | No            | 6       | Synthetic         | Classify if the node belongs to a given cluster in an SBM graph.                                                                                                                 |                                                                                     |
-| TSP              | GNN Benchmark        | Edge Classification  | 12000  | 275.76 | 6894.04 | No        | No        | 2             | 1             | Node features are the coordinates of the node. Edge features are the distances between nodes.                                               | No            | 1       | Synthetic         | Predict whether the edge belongs to an optimal tour of the graph.                                                                                                                |                                                                                     |
-| CSL              | GNN Benchmark        | Graph Classification | 150    | 41     | 164     | No        | No        | N/A           | N/A           | N/A                                                                                                                                         | No            | 15      | Synthetic         | Isomorphisms.                                                                                                                                                                    |                                                                                     |
-| ZINC             | GNN Benchmark        | Graph Regression     | 12000  | 23.16  | 49.83   | No        | No        | 28            | 4             | Node features are atom types. Edge features are bond types.                                                                                 | No            | N/A     | Molecular         | Predict the constrained solubility of the molecule.                                                                                                                              |                                                                                     |
-| AQSOL            | GNN Benchmark        | Graph Regression     | 9823   | 17.57  | 35.76   | No        | No        | 65            | 5             | Node features are atom types. Edge features are bond types.                                                                                 | No            | N/A     | Molecular         | Predict the aqueous solubility of the molecule.                                                                                                                                  |                                                                                     |
-| OGBL-COLLAB      | GNN Benchmark        | Edge Classification  | 1      | 235868 | 2358104 | No        | Yes       | 128           | 2             | Node features are averaged word embeddings of papers. Edge features are the collaboration year and number of coauthored papers in the year. | No            | 1       | Social Network    | Link prediction task to determine if two authors will collaborate in the future.                                                                                                 |                                                                                     |
-| WikiCS           | GNN Benchmark        | Node Classification  | 1      | 11701  | 216123  | No*       | No        | 300           | N/A           | Node features are averaged word embeddings of the computer science article.                                                                 | No            | 10      | Hyperlink Network | Classify the category of the article from the given embedding and the links between articles.                                                                                    |                                                                                     |
-| CYCLES           | GNN Benchmark        | Graph Classification | 20000  | 48.96  | 87.84   | No        | No        | N/A           | N/A           | N/A                                                                                                                                         | No            | 1       | Synthetic         | Classify whether the graph contains cycles or not.                                                                                                                               |                                                                                     |
-| GraphTheoryProp  | GNN Benchmark        | Various              | 7040   | 18.82  | 95.17   | No        | No        | 2             | N/A           | Random.                                                                                                                                     | No            | Various | Synthetic         | There are three node level and three graph level tasks; shortest path, node eccentricity, laplacian feature, graph connectivity, graph diameter, and spectral radius prediction. |                                                                                     |
-| Cornell          | WebKB                | Node Classification  | 1      | 183    | 298     | No*       | No        | 1703          | N/A           | Bag of words.                                                                                                                               | No            | 5       | Hyperlink Network | Classify the subject of the web page.                                                                                                                                            |                                                                                     |
-| Texas            | WebKB                | Node Classification  | 1      | 183    | 325     | No*       | No        | 1703          | N/A           | Bag of words.                                                                                                                               | No            | 5       | Hyperlink Network | Classify the subject of the web page.                                                                                                                                            |                                                                                     |
-| Wisconsin        | WebKB                | Node Classification  | 1      | 251    | 515     | No*       | No        | 1703          | N/A           | Bag of words.                                                                                                                               | No            | 5       | Hyperlink Network | Classify the subject of the web page.                                                                                                                                            |                                                                                     |
-| Roman-Empire     | Heterophilous        | Node Classification  | 1      | 22662  | 32927   | No        | No        | 300           | N/A           | Word embeddings.                                                                                                                            | Yes           | 18      | Linguistics       | Task is to classify the syntactic role of the word.                                                                                                                              |                                                                                     |
-| Amazon-Ratings   | Heterophilous        | Node Classification  | 1      | 24492  | 93050   | No        | No        | 300           | N/A           | Word embeddings of the product’s description.                                                                                               | No            | 5       | Copurchase        | Predict the average rating reviewer rating of the product.                                                                                                                       |                                                                                     |
-| Tolokers         | Heterophilous        | Node Classification  | 1      | 11758  | 519000  | No        | No        | 10            | N/A           | Workers’ profile information and performance statistics                                                                                     | No            | 2       | Social Network    | Predict which workers have been banned in a project.                                                                                                                             |                                                                                     |
-| Questions        | Heterophilous        | Node Classification  | 1      | 48921  | 153540  | No        | No        | 301           | N/A           | Word embedding of users’ bios.                                                                                                              | Yes           | 2       | Social Network    | Predict which users have been deleted or blocked at the end of the considered time period.                                                                                       |                                                                                     |
-| Minesweeper      | Heterophilous        | Node Classification  | 1      | 10000  | 39402   | No        | No        | 7             | N/A           | One-hot encoding of the number of neighbouring mines.                                                                                       | No            | 2       | Synthetic         | Predict which nodes contain mines.                                                                                                                                               |                                                                                     |
-| Squirrel         | Wikipedia Network    |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  | Duplicate entries found in the dataset so using as-is likely leads to data leakage. |
-| Chameleon        | Wikipedia Network    |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  | Duplicate entries found in the dataset so using as-is likely leads to data leakage. |
-| Crocodile        | Wikipedia Network    |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| PascalVOC-SP     | LRGB                 |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| COCO-SP          | LRGB                 |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| PCQM-Contact     | LRGB                 |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Peptides-func    | LRGB                 |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Peptides-struct  | LRGB                 |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| MUTAG            | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| ENZYMES          | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| PROTEINS         | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| COLLAB           | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| IMBD_Multi       | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| IMBD_Binary      | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Reddit_Binary    | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Reddit_Multi-5K  | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Reddit_Multi-12K | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| SYNTHETIC        | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Cuneiform        | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Letter_low       | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Letter_med       | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Letter_high      | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| DHFR             | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| DHFR_MD          | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| COIL_RAG         | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| COIL_DEL         | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| COX2             | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| COX2_MD          | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| ER_MD            | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Fingerprint      | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| BZR              | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| BZR_MD           | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tox21_ATAD5      | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tox21_PPAR-gamma | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tox21_AR         | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tox21_p53        | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tox21_AR-LBD     | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tox21_MMP        | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tox21_HSE        | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tox21_ER-LBD     | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tox21_ER         | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tox21_AHR        | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tox21_aromatase  | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tox21_ARE        | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| AIDS             | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| FRANKENSTEIN     | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| PTC_MM           | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| PTC_MR           | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| PTC_FM           | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| PTC_FR           | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Mutagenicity     | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| NC11             | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| NC1109           | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| FIRSTMM_DB       | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OHSU             | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| KKI              | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Peking_1         | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| MSRC_21C         | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| MSRC_9           | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| MSRC_21          | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Synth            | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| DD               | TUDataset            |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBN-products    | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBN-proteins    | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBN-arxiv       | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBN-paper100M   | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBN-mag         | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBL-ppa         | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBL-COLLAB      | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBL-ddi         | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBL-citation2   | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBL-wikikg2     | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBL-biokg       | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBG-mol         | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBG-ppa         | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| OGBG-code2       | Open Graph Benchmark |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| CoauthorCS       |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| CoauthorPhysics  |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Amazon-Computer  |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Amazon-Photo     |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| NELL             |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| PPI              |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Telegram         |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| QM9              |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Facebook         |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| AIFB             |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Web of Science   |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| Tadpole          |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-| UK Biobank       |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-|                  |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-|                  |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-|                  |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-|                  |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-|                  |                      |                      |        |        |         |           |           |               |               |                                                                                                                                             |               |         |                   |                                                                                                                                                                                  |                                                                                     |
-</div>
+<table class="dataset-table-wrap">
+    <tr>
+        <td>Dataset Name</td>
+        <td>Collection</td>
+        <td>Task Type</td>
+        <td>Graphs</td>
+        <td>Nodes</td>
+        <td>Edges</td>
+        <td>Directed?</td>
+        <td>Temporal?</td>
+        <td>Node Features</td>
+        <td>Edge Features</td>
+        <td>Feature Description</td>
+        <td>Heterophilic?</td>
+        <td>Classes</td>
+        <td>Field</td>
+        <td>Task Description</td>
+        <td>Notes</td>
+    </tr>
+    <tr>
+        <td>Cora</td>
+        <td>Planetoid</td>
+        <td>Node Classification</td>
+        <td>1</td>
+        <td>2708</td>
+        <td>10556</td>
+        <td>No*</td>
+        <td>No</td>
+        <td>1433</td>
+        <td>N/A</td>
+        <td>Bag of words.</td>
+        <td>No</td>
+        <td>7</td>
+        <td>Citation Network</td>
+        <td>Classify the topic of the paper.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Citeseer</td>
+        <td>Planetoid</td>
+        <td>Node Classification</td>
+        <td>1</td>
+        <td>3327</td>
+        <td>9104</td>
+        <td>No*</td>
+        <td>No</td>
+        <td>3703</td>
+        <td>N/A</td>
+        <td>Bag of words.</td>
+        <td>No</td>
+        <td>6</td>
+        <td>Citation Network</td>
+        <td>Classify the topic of the paper.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Pubmed</td>
+        <td>Planetoid</td>
+        <td>Node Classification</td>
+        <td>1</td>
+        <td>19717</td>
+        <td>88649</td>
+        <td>No*</td>
+        <td>No</td>
+        <td>500</td>
+        <td>N/A</td>
+        <td>Bag of words.</td>
+        <td>No</td>
+        <td>3</td>
+        <td>Citation Network</td>
+        <td>Classify the topic of the paper.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>MNIST</td>
+        <td>GNN Benchmark</td>
+        <td>Graph Classification</td>
+        <td>70000</td>
+        <td>70.57</td>
+        <td>565.53</td>
+        <td>No</td>
+        <td>No</td>
+        <td>3</td>
+        <td>1</td>
+        <td>Node features are pixel values and coordinates. Edge features are node distances.</td>
+        <td>No</td>
+        <td>10</td>
+        <td>Superpixel</td>
+        <td>Classify the superpixel images into the digit the image represents.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>CIFAR10</td>
+        <td>GNN Benchmark</td>
+        <td>Graph Classification</td>
+        <td>60000</td>
+        <td>117.63</td>
+        <td>941.07</td>
+        <td>No</td>
+        <td>No</td>
+        <td>5</td>
+        <td>1</td>
+        <td>Node features are pixel values and coordinates. Edge features are node distances.</td>
+        <td>No</td>
+        <td>10</td>
+        <td>Superpixel</td>
+        <td>Classify the object shown in the superpixel image.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PATTERN</td>
+        <td>GNN Benchmark</td>
+        <td>Node Classification</td>
+        <td>14000</td>
+        <td>117.47</td>
+        <td>4749.15</td>
+        <td>No</td>
+        <td>No</td>
+        <td>3</td>
+        <td>N/A</td>
+        <td>Random.</td>
+        <td>No</td>
+        <td>2</td>
+        <td>Synthetic</td>
+        <td>Classify if the node belongs to a given pattern in an SBM graph.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>CLUSTER</td>
+        <td>GNN Benchmark</td>
+        <td>Node Classification</td>
+        <td>12000</td>
+        <td>117.2</td>
+        <td>4301.72</td>
+        <td>No</td>
+        <td>No</td>
+        <td>7</td>
+        <td>N/A</td>
+        <td>Community membership.</td>
+        <td>No</td>
+        <td>6</td>
+        <td>Synthetic</td>
+        <td>Classify if the node belongs to a given cluster in an SBM graph.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>TSP</td>
+        <td>GNN Benchmark</td>
+        <td>Edge Classification</td>
+        <td>12000</td>
+        <td>275.76</td>
+        <td>6894.04</td>
+        <td>No</td>
+        <td>No</td>
+        <td>2</td>
+        <td>1</td>
+        <td>Node features are the coordinates of the node. Edge features are the distances between nodes.</td>
+        <td>No</td>
+        <td>1</td>
+        <td>Synthetic</td>
+        <td>Predict whether the edge belongs to an optimal tour of the graph.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>CSL</td>
+        <td>GNN Benchmark</td>
+        <td>Graph Classification</td>
+        <td>150</td>
+        <td>41</td>
+        <td>164</td>
+        <td>No</td>
+        <td>No</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>No</td>
+        <td>15</td>
+        <td>Synthetic</td>
+        <td>Isomorphisms.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ZINC</td>
+        <td>GNN Benchmark</td>
+        <td>Graph Regression</td>
+        <td>12000</td>
+        <td>23.16</td>
+        <td>49.83</td>
+        <td>No</td>
+        <td>No</td>
+        <td>28</td>
+        <td>4</td>
+        <td>Node features are atom types. Edge features are bond types.</td>
+        <td>No</td>
+        <td>N/A</td>
+        <td>Molecular</td>
+        <td>Predict the constrained solubility of the molecule.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>AQSOL</td>
+        <td>GNN Benchmark</td>
+        <td>Graph Regression</td>
+        <td>9823</td>
+        <td>17.57</td>
+        <td>35.76</td>
+        <td>No</td>
+        <td>No</td>
+        <td>65</td>
+        <td>5</td>
+        <td>Node features are atom types. Edge features are bond types.</td>
+        <td>No</td>
+        <td>N/A</td>
+        <td>Molecular</td>
+        <td>Predict the aqueous solubility of the molecule.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBL-COLLAB</td>
+        <td>GNN Benchmark</td>
+        <td>Edge Classification</td>
+        <td>1</td>
+        <td>235868</td>
+        <td>2358104</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>128</td>
+        <td>2</td>
+        <td>Node features are averaged word embeddings of papers. Edge features are the collaboration year and number of coauthored papers in the year.</td>
+        <td>No</td>
+        <td>1</td>
+        <td>Social Network</td>
+        <td>Link prediction task to determine if two authors will collaborate in the future.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>WikiCS</td>
+        <td>GNN Benchmark</td>
+        <td>Node Classification</td>
+        <td>1</td>
+        <td>11701</td>
+        <td>216123</td>
+        <td>No*</td>
+        <td>No</td>
+        <td>300</td>
+        <td>N/A</td>
+        <td>Node features are averaged word embeddings of the computer science article.</td>
+        <td>No</td>
+        <td>10</td>
+        <td>Hyperlink Network</td>
+        <td>Classify the category of the article from the given embedding and the links between articles.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>CYCLES</td>
+        <td>GNN Benchmark</td>
+        <td>Graph Classification</td>
+        <td>20000</td>
+        <td>48.96</td>
+        <td>87.84</td>
+        <td>No</td>
+        <td>No</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>No</td>
+        <td>1</td>
+        <td>Synthetic</td>
+        <td>Classify whether the graph contains cycles or not.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>GraphTheoryProp</td>
+        <td>GNN Benchmark</td>
+        <td>Various</td>
+        <td>7040</td>
+        <td>18.82</td>
+        <td>95.17</td>
+        <td>No</td>
+        <td>No</td>
+        <td>2</td>
+        <td>N/A</td>
+        <td>Random.</td>
+        <td>No</td>
+        <td>Various</td>
+        <td>Synthetic</td>
+        <td>There are three node level and three graph level tasks; shortest path, node eccentricity, laplacian feature, graph connectivity, graph diameter, and spectral radius prediction.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Cornell</td>
+        <td>WebKB</td>
+        <td>Node Classification</td>
+        <td>1</td>
+        <td>183</td>
+        <td>298</td>
+        <td>No*</td>
+        <td>No</td>
+        <td>1703</td>
+        <td>N/A</td>
+        <td>Bag of words.</td>
+        <td>No</td>
+        <td>5</td>
+        <td>Hyperlink Network</td>
+        <td>Classify the subject of the web page.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Texas</td>
+        <td>WebKB</td>
+        <td>Node Classification</td>
+        <td>1</td>
+        <td>183</td>
+        <td>325</td>
+        <td>No*</td>
+        <td>No</td>
+        <td>1703</td>
+        <td>N/A</td>
+        <td>Bag of words.</td>
+        <td>No</td>
+        <td>5</td>
+        <td>Hyperlink Network</td>
+        <td>Classify the subject of the web page.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Wisconsin</td>
+        <td>WebKB</td>
+        <td>Node Classification</td>
+        <td>1</td>
+        <td>251</td>
+        <td>515</td>
+        <td>No*</td>
+        <td>No</td>
+        <td>1703</td>
+        <td>N/A</td>
+        <td>Bag of words.</td>
+        <td>No</td>
+        <td>5</td>
+        <td>Hyperlink Network</td>
+        <td>Classify the subject of the web page.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Roman-Empire</td>
+        <td>Heterophilous</td>
+        <td>Node Classification</td>
+        <td>1</td>
+        <td>22662</td>
+        <td>32927</td>
+        <td>No</td>
+        <td>No</td>
+        <td>300</td>
+        <td>N/A</td>
+        <td>Word embeddings.</td>
+        <td>Yes</td>
+        <td>18</td>
+        <td>Linguistics</td>
+        <td>Task is to classify the syntactic role of the word.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Amazon-Ratings</td>
+        <td>Heterophilous</td>
+        <td>Node Classification</td>
+        <td>1</td>
+        <td>24492</td>
+        <td>93050</td>
+        <td>No</td>
+        <td>No</td>
+        <td>300</td>
+        <td>N/A</td>
+        <td>Word embeddings of the product’s description.</td>
+        <td>No</td>
+        <td>5</td>
+        <td>Copurchase</td>
+        <td>Predict the average rating reviewer rating of the product.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tolokers</td>
+        <td>Heterophilous</td>
+        <td>Node Classification</td>
+        <td>1</td>
+        <td>11758</td>
+        <td>519000</td>
+        <td>No</td>
+        <td>No</td>
+        <td>10</td>
+        <td>N/A</td>
+        <td>Workers’ profile information and performance statistics</td>
+        <td>No</td>
+        <td>2</td>
+        <td>Social Network</td>
+        <td>Predict which workers have been banned in a project.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Questions</td>
+        <td>Heterophilous</td>
+        <td>Node Classification</td>
+        <td>1</td>
+        <td>48921</td>
+        <td>153540</td>
+        <td>No</td>
+        <td>No</td>
+        <td>301</td>
+        <td>N/A</td>
+        <td>Word embedding of users’ bios.</td>
+        <td>Yes</td>
+        <td>2</td>
+        <td>Social Network</td>
+        <td>Predict which users have been deleted or blocked at the end of the considered time period.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Minesweeper</td>
+        <td>Heterophilous</td>
+        <td>Node Classification</td>
+        <td>1</td>
+        <td>10000</td>
+        <td>39402</td>
+        <td>No</td>
+        <td>No</td>
+        <td>7</td>
+        <td>N/A</td>
+        <td>One-hot encoding of the number of neighbouring mines.</td>
+        <td>No</td>
+        <td>2</td>
+        <td>Synthetic</td>
+        <td>Predict which nodes contain mines.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Squirrel</td>
+        <td>Wikipedia Network</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Duplicate entries found in the dataset so using as-is likely leads to data leakage.</td>
+    </tr>
+    <tr>
+        <td>Chameleon</td>
+        <td>Wikipedia Network</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Duplicate entries found in the dataset so using as-is likely leads to data leakage.</td>
+    </tr>
+    <tr>
+        <td>Crocodile</td>
+        <td>Wikipedia Network</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PascalVOC-SP</td>
+        <td>LRGB</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>COCO-SP</td>
+        <td>LRGB</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PCQM-Contact</td>
+        <td>LRGB</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Peptides-func</td>
+        <td>LRGB</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Peptides-struct</td>
+        <td>LRGB</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>MUTAG</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ENZYMES</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PROTEINS</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>COLLAB</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>IMBD_Multi</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>IMBD_Binary</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Reddit_Binary</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Reddit_Multi-5K</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Reddit_Multi-12K</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SYNTHETIC</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Cuneiform</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Letter_low</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Letter_med</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Letter_high</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>DHFR</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>DHFR_MD</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>COIL_RAG</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>COIL_DEL</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>COX2</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>COX2_MD</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ER_MD</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Fingerprint</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>BZR</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>BZR_MD</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tox21_ATAD5</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tox21_PPAR-gamma</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tox21_AR</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tox21_p53</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tox21_AR-LBD</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tox21_MMP</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tox21_HSE</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tox21_ER-LBD</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tox21_ER</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tox21_AHR</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tox21_aromatase</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tox21_ARE</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>AIDS</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>FRANKENSTEIN</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PTC_MM</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PTC_MR</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PTC_FM</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PTC_FR</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Mutagenicity</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>NC11</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>NC1109</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>FIRSTMM_DB</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OHSU</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>KKI</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Peking_1</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>MSRC_21C</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>MSRC_9</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>MSRC_21</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Synth</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>DD</td>
+        <td>TUDataset</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBN-products</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBN-proteins</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBN-arxiv</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBN-paper100M</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBN-mag</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBL-ppa</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBL-COLLAB</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBL-ddi</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBL-citation2</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBL-wikikg2</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBL-biokg</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBG-mol</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBG-ppa</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>OGBG-code2</td>
+        <td>Open Graph Benchmark</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>CoauthorCS</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>CoauthorPhysics</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Amazon-Computer</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Amazon-Photo</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>NELL</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PPI</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Telegram</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>QM9</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Facebook</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>AIFB</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Web of Science</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tadpole</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>UK Biobank</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
